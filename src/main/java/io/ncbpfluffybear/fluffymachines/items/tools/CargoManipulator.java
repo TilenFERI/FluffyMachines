@@ -196,7 +196,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
 
         // Force menu update
         BlockStorage.getStorage(child.getWorld()).reloadInventory(child.getLocation());
-        Utils.send(p, "&aYour " + savedNodeType.getDisplayName() + " &ahas been pasted.");
+        Utils.send(p, "&aYour " + savedNodeType.getItemName() + " &ahas been pasted.");
         createParticle(child, Color.LIME);
 
     }
