@@ -207,7 +207,7 @@ public final class FluffyItemSetup {
         new FluffyWrench(wrenches, FluffyItems.CARBONADO_FLUFFY_WRENCH,
                 RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 SlimefunItems.CARBONADO.item(), null, SlimefunItems.CARBONADO.item(),
-                SlimefunItems.CARBONADO.item(), FluffyItems.REINFORCED_FLUFFY_WRENCH, SlimefunItems.CARBONADO.item(),
+                SlimefunItems.CARBONADO.item(), FluffyItems.REINFORCED_FLUFFY_WRENCH.item(), SlimefunItems.CARBONADO.item(),
                 null, SlimefunItems.CARBONADO_EDGED_CAPACITOR.item(), null
         }, FluffyWrench.Wrench.CARBONADO).register(plugin);
 
@@ -281,14 +281,14 @@ public final class FluffyItemSetup {
                 new ItemStack(Material.BOOKSHELF), advancedCircuitBoard, new ItemStack(Material.BOOKSHELF),
                 new ItemStack(Material.BOOKSHELF), new ItemStack(Material.CRAFTING_TABLE),
                 new ItemStack(Material.DISPENSER),
-                new ItemStack(Material.BOOKSHELF), FluffyItems.AUTO_CRAFTING_TABLE, new ItemStack(Material.BOOKSHELF)
+                new ItemStack(Material.BOOKSHELF), FluffyItems.AUTO_CRAFTING_TABLE.item(), new ItemStack(Material.BOOKSHELF)
         }).register(plugin);
 
         new AutoArmorForge(machines, FluffyItems.AUTO_ARMOR_FORGE,
                 RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 new ItemStack(Material.ANVIL), new ItemStack(Material.ANVIL), new ItemStack(Material.ANVIL),
                 advancedCircuitBoard, new ItemStack(Material.DISPENSER), advancedCircuitBoard,
-                new ItemStack(Material.ANVIL), FluffyItems.AUTO_CRAFTING_TABLE, new ItemStack(Material.ANVIL)
+                new ItemStack(Material.ANVIL), FluffyItems.AUTO_CRAFTING_TABLE.item(), new ItemStack(Material.ANVIL)
         }).register(plugin);
 
         new AdvancedAutoDisenchanter(machines, FluffyItems.ADVANCED_AUTO_DISENCHANTER,
