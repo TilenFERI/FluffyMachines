@@ -80,7 +80,7 @@ class UpgradedExplosiveTool extends ExplosiveTool {
         List<Block> blocksToDestroy = new ArrayList<>();
 
         if (callExplosionEvent.getValue()) {
-            BlockExplodeEvent blockExplodeEvent = new BlockExplodeEvent(b, b.getState(), blocks, 0.0F, org.bukkit.event.block.BlockExplodeEvent.ExplosionResult.KEEP);
+            BlockExplodeEvent blockExplodeEvent = new BlockExplodeEvent(b, b.getState(), blocks, 0.0F, org.bukkit.ExplosionResult.KEEP);
             Bukkit.getServer().getPluginManager().callEvent(blockExplodeEvent);
 
             if (!blockExplodeEvent.isCancelled()) {
