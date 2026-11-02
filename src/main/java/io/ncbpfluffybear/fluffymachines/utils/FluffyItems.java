@@ -468,7 +468,7 @@ public class FluffyItems {
     );
 
     static {
-        FireproofRune.setFireproof(FIREPROOF_RUNE);
+        FireproofRune.setFireproof(FIREPROOF_RUNE.item());
         addGlow(SMALL_PORTABLE_CHARGER.item());
         addGlow(MEDIUM_PORTABLE_CHARGER.item());
         addGlow(BIG_PORTABLE_CHARGER.item());
