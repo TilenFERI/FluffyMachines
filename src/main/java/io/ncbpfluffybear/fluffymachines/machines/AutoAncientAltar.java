@@ -60,7 +60,7 @@ public class AutoAncientAltar extends SlimefunItem implements EnergyNetComponent
     private final AncientAltar altarItem = (AncientAltar) SlimefunItems.ANCIENT_ALTAR.getItem();
 
     private final ItemStack ironBars = new ItemStack(Material.IRON_BARS);
-    private final ItemStack earthRune = SlimefunItems.EARTH_RUNE.getItem();
+    private final ItemStack earthRune = SlimefunItems.EARTH_RUNE.getItem().getItem();
     private final List<ItemStack> jarInputs = new ArrayList<>(Arrays.asList(ironBars, earthRune, ironBars, earthRune,
             ironBars, earthRune, ironBars, earthRune));
 
