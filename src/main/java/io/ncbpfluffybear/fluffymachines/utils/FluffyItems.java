@@ -253,7 +253,7 @@ public class FluffyItems {
                     "&eDrop this rune onto a dropped item to",
                     "&emake it &cfireproof",
                     ""
-            ));
+            );
     public static final SlimefunItemStack SUPERHEATED_FURNACE = new SlimefunItemStack("SUPERHEATED_FURNACE",
             Material.BLAST_FURNACE,
             "&cSuper Heated Furnace",
