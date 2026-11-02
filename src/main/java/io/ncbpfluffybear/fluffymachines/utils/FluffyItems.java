@@ -248,7 +248,7 @@ public class FluffyItems {
     );
     public static final SlimefunItemStack FIREPROOF_RUNE = new SlimefunItemStack(
             "FIREPROOF_RUNE",
-            new ColoredFireworkStar(Color.fromRGB(255, 165, 0),
+            Material.FIREWORK_STAR, Color.fromRGB(255, 165, 0),
                     "&7Ancient Rune &8&l[&c&lFireproof&8&l]",
                     "",
                     "&eDrop this rune onto a dropped item to",
