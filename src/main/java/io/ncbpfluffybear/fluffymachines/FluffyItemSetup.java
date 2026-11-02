@@ -63,8 +63,8 @@ public final class FluffyItemSetup {
     private static final ItemGroup tools = createGroup("tools", Material.IRON_PICKAXE, "&bTools", 3, "Tools");
     private static final ItemGroup multiblocks = createGroup("multiblocks", Material.BRICKS, "&cMultiblocks", 4, "Multiblocks");
     private static final ItemGroup fluffybarrels = createGroup("barrels", Material.BARREL, "&6Fluffy Barrels", 5, "Fluffy Barrels");
-    private static final ItemGroup portableChargers = createGroup("portable_chargers", FluffyItems.CARBONADO_PORTABLE_CHARGER, "&ePortable Chargers", 6, "Portable Chargers");
-    private static final ItemGroup wrenches = createGroup("wrenches", FluffyItems.CARBONADO_FLUFFY_WRENCH, "&7Wrenches", 7, "Wrenches");
+    private static final ItemGroup portableChargers = createGroup("portable_chargers", FluffyItems.CARBONADO_PORTABLE_CHARGER.item(), "&ePortable Chargers", 6, "Portable Chargers");
+    private static final ItemGroup wrenches = createGroup("wrenches", FluffyItems.CARBONADO_FLUFFY_WRENCH.item(), "&7Wrenches", 7, "Wrenches");
     private static final ItemGroup cargo = createGroup("cargo", Material.CHEST, "&3Cargo", 8, "Cargo");
     private static final ItemGroup misc = createGroup("misc", Material.HOPPER, "&8Misc", 9, "Misc");
 
@@ -118,7 +118,7 @@ public final class FluffyItemSetup {
                     barrelType.getBorder(), barrelType.getReinforcement(), barrelType.getBorder()
             }, barrelType.getDefaultSize()).register(plugin);
 
-            previousBarrel = barrelStack;
+            previousBarrel = barrelStack.item();
 
         }
     }
