@@ -114,7 +114,7 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> implements C
 
                             if (!updateUses(this, p, item, 1))
                                 return;
-                            blockLocation.getWorld().spawnParticle(Particle.WATER_SPLASH, blockLocation, 0);
+                            blockLocation.getWorld().spawnParticle(Particle.SPLASH, blockLocation, 0);
                             double random = ThreadLocalRandom.current().nextDouble();
                             if (random < sugarCaneSuccessChance.getValue()) {
                                 above.setType(Material.SUGAR_CANE);
