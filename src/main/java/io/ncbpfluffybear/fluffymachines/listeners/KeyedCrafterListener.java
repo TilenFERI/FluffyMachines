@@ -56,7 +56,7 @@ public class KeyedCrafterListener implements Listener {
                     return;
                 }
 
-                if (SmartFactory.getAcceptedItems().contains(key)) {
+                if (SmartFactory.getAcceptedItems().stream().anyMatch(accepted -> accepted.getItemId().equals(key.getId()))) {
 
                     BlockStorage.addBlockInfo(b, "recipe", key.getId());
                     BlockStorage.getInventory(b).replaceExistingItem(SmartFactory.RECIPE_SLOT,
