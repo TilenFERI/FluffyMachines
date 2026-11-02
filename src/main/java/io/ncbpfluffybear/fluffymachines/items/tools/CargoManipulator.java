@@ -107,7 +107,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
         JsonObject nodeData = (JsonObject) new JsonParser().parse(BlockStorage.getBlockInfoAsJson(parent));
 
         ItemStack[] filterItems = new ItemStack[9];
-        if (nodeType != SlimefunItems.CARGO_OUTPUT_NODE) { // No inventory
+        if (nodeType != SlimefunItems.CARGO_OUTPUT_NODE.getitem()) { // No inventory
             // Copy inventory into map
             BlockMenu parentInventory = BlockStorage.getInventory(parent);
             for (int i = 0; i < 9; i++) { // Iterate through all slots in cargo filter
@@ -153,7 +153,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
         // Set the data
         BlockStorage.setBlockInfo(child, jsonData.toString(), false);
 
-        if (nodeType != SlimefunItems.CARGO_OUTPUT_NODE) {
+        if (nodeType != SlimefunItems.CARGO_OUTPUT_NODE.getitem()) {
             // Set the filter
             BlockMenu nodeMenu = BlockStorage.getInventory(child);
             ItemStack[] filterItems = nodeSettings.getSecondValue();
@@ -211,14 +211,14 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
         BlockStorage.addBlockInfo(node, "frequency", "0");
 
         // These settings are only for Input and Advanced Output nodes
-        if (nodeType != SlimefunItems.CARGO_OUTPUT_NODE) {
+        if (nodeType != SlimefunItems.CARGO_OUTPUT_NODE.getitem()) {
             // AbstractFilterNode settings
             BlockStorage.addBlockInfo(node, "index", "0");
             BlockStorage.addBlockInfo(node, "filter-type", "whitelist");
             BlockStorage.addBlockInfo(node, "filter-lore", String.valueOf(true));
             BlockStorage.addBlockInfo(node, "filter-durability", String.valueOf(false));
 
-            if (nodeType == SlimefunItems.CARGO_INPUT_NODE) {
+            if (nodeType == SlimefunItems.CARGO_INPUT_NODE.getitem()) {
                 // CargoInputNode settings
                 BlockStorage.addBlockInfo(node, "round-robin", String.valueOf(false));
                 BlockStorage.addBlockInfo(node, "smart-fill", String.valueOf(false));
