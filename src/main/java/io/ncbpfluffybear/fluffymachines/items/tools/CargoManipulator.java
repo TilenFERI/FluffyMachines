@@ -76,9 +76,9 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
         // Check if targeted block is cargo node
         SlimefunItem nodeType = getCargoNodeType(b);
         if (nodeType == null || (
-                nodeType != SlimefunItems.CARGO_OUTPUT_NODE &&
-                        nodeType != SlimefunItems.CARGO_OUTPUT_NODE_2 &&
-                        nodeType != SlimefunItems.CARGO_INPUT_NODE
+                nodeType != SlimefunItems.CARGO_OUTPUT_NODE.getItem().getItem() &&
+                        nodeType != SlimefunItems.CARGO_OUTPUT_NODE_2.getItem() &&
+                        nodeType != SlimefunItems.CARGO_INPUT_NODE.getItem()
         )) {
             return;
         }
