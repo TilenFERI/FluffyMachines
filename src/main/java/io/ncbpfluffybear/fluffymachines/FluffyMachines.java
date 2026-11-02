@@ -104,6 +104,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
         // Registering Items
         FluffyItemSetup.setup(this);
         FluffyItemSetup.setupBarrels(this);
+        io.github.thebusybiscuit.slimefun5.implementation.Slimefun.getItemTranslationService().registerTranslations(this);
 
         // Register Events Class
         getServer().getPluginManager().registerEvents(new Events(), this);
