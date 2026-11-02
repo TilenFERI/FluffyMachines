@@ -359,7 +359,7 @@ public class SmartFactory extends SlimefunItem implements EnergyNetComponent, Re
                     rawSlimefun.put(recipeItem, rawSlimefun.getOrDefault(recipeItem, 0) + amt * item.getAmount());
                 });
             } else {
-                if (item instanceof SlimefunItemStack) {
+                if (SlimefunItem.getByItem(item) != null) {
                     rawSlimefun.put(SlimefunItem.getByItem(item), rawSlimefun.getOrDefault(SlimefunItem.getByItem(item), 0) + item.getAmount());
                 } else {
                     // Replace some vanilla items
