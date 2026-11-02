@@ -74,7 +74,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
         Block b = e.getClickedBlock();
 
         // Check if targeted block is cargo node
-        SlimefunItemStack nodeType = getCargoNodeType(b);
+        SlimefunItem nodeType = getCargoNodeType(b);
         if (nodeType == null || (
                 nodeType != SlimefunItems.CARGO_OUTPUT_NODE &&
                         nodeType != SlimefunItems.CARGO_OUTPUT_NODE_2 &&
@@ -102,7 +102,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
      * Copy's a node's data into the manipulator. Cargo inventories stored in map.
      * Action: Right Click Block
      */
-    private void copyNode(Block parent, Player p, SlimefunItemStack nodeType) {
+    private void copyNode(Block parent, Player p, SlimefunItem nodeType) {
         // Copy BlockStorage data
         JsonObject nodeData = (JsonObject) new JsonParser().parse(BlockStorage.getBlockInfoAsJson(parent));
 
@@ -130,7 +130,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
      * Pastes stored node contents
      * Action: Left Click
      */
-    private void pasteNode(Block child, Player p, SlimefunItemStack nodeType) {
+    private void pasteNode(Block child, Player p, SlimefunItem nodeType) {
         Pair<JsonObject, ItemStack[]> nodeSettings = storedFilters.getOrDefault(p, null);
 
         // No data saved yet
@@ -142,10 +142,10 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
         // Get saved data
         JsonObject jsonData = nodeSettings.getFirstValue();
 
-        SlimefunItemStack savedNodeType = (SlimefunItemStack) SlimefunItem.getById(jsonData.get("id").getAsString()).getItem();
+        SlimefunItem savedNodeType = SlimefunItem.getById(jsonData.get("id").getAsString());
         if (savedNodeType != nodeType) {
-            Utils.send(p, "&cYou copied a " + savedNodeType.getDisplayName() +
-                    " &cbut you are trying to modify a " + nodeType.getDisplayName() + "&c!");
+            Utils.send(p, "&cYou copied a " + savedNodeType.getItemName() +
+                    " &cbut you are trying to modify a " + nodeType.getItemName() + "&c!");
             createParticle(child, Color.RED);
             return;
         }
@@ -205,7 +205,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
      * Clears the data of a targeted node
      * Action: Sneak + Right Click Block
      */
-    private void clearNode(Block node, Player p, SlimefunItemStack nodeType) {
+    private void clearNode(Block node, Player p, SlimefunItem nodeType) {
         // Clear node settings
         BlockStorage.addBlockInfo(node, "owner", p.getUniqueId().toString());
         BlockStorage.addBlockInfo(node, "frequency", "0");
@@ -253,7 +253,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
     /**
      * Get the SlimefunItemStack of the cargo node
      */
-    private SlimefunItemStack getCargoNodeType(Block b) {
+    private SlimefunItem getCargoNodeType(Block b) {
         if (b == null) {
             return null;
         }
@@ -264,7 +264,7 @@ public class CargoManipulator extends SimpleSlimefunItem<ItemUseHandler> impleme
             return null;
         }
 
-        return (SlimefunItemStack) SlimefunItem.getById(blockId).getItem();
+        return SlimefunItem.getById(blockId);
     }
 
     private void createParticle(Block b, Color color) {
