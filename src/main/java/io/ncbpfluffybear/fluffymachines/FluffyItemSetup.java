@@ -3,6 +3,8 @@ package io.ncbpfluffybear.fluffymachines;
 import io.github.thebusybiscuit.slimefun5.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun5.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun5.core.guide.menus.AddonItemGroup;
+import io.github.thebusybiscuit.slimefun5.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun5.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun5.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun5.libraries.dough.items.CustomItemStack;
@@ -68,6 +70,22 @@ public final class FluffyItemSetup {
     private static final ItemGroup cargo = createGroup("cargo", Material.CHEST, "&3Cargo", 8, "Cargo");
     private static final ItemGroup misc = createGroup("misc", Material.HOPPER, "&8Misc", 9, "Misc");
 
+    private static void setupGroups(@Nonnull FluffyMachines plugin) {
+        for (ItemGroup group : new ItemGroup[]{
+                generators, machines, tools, multiblocks, fluffybarrels,
+                portableChargers, wrenches, cargo, misc
+        }) {
+            group.register(plugin);
+        }
+
+        AddonItemGroup guideRoot = new AddonItemGroup(
+                new NamespacedKey(plugin, "guide_menu"),
+                CustomItemStack.create(Material.BLAST_FURNACE, "&6FluffyMachines"),
+                plugin.getName()
+        );
+        Slimefun.getAddonMenus().declareRoot(guideRoot);
+    }
+
     private static ItemGroup createGroup(String key, Material icon, String name, int tier, String category) {
         ItemGroup group = new ItemGroup(
                 new NamespacedKey(FluffyMachines.getInstance(), key),
@@ -124,6 +142,7 @@ public final class FluffyItemSetup {
     }
 
     public static void setup(@Nonnull FluffyMachines plugin) {
+        setupGroups(plugin);
 
         // Chargers
         new PortableCharger(portableChargers, FluffyItems.SMALL_PORTABLE_CHARGER,
